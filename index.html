@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="body">
+    <h1>Задача 8 Кодрикова Елена</h1>
+    <h2>Создание списка дел </h2>
+    <input type="text" id="taskInput" placeholder="Введите дело...">
+    <button id="addTaskBtn">Добавить дело</button>
+    <ul id="taskList"></ul>
+
+    <template id="taskTemplate">
+        <li>
+            <span class="taskText"></span>
+            <button class="deleteTaskBtn">Удалить</button>
+        </li>
+    </template>
+
+    <h2>Карточки продуктов в интернет-магазине</h2>
+    <div id="productContainer"></div>
+    <template id="productTemplate">
+        <div class="productCard">
+            <img class="productImage" src="" alt="Product Image">
+            <h3 class="productName"></h3>
+            <p class="productPrice"></p>
+            <p class="productDescription"></p>
+        </div>
+    </template>
+    <h2>Форма регистрации с динамическим добавлением полей</h2>
+    <form id="registrationForm">
+        <button type="button" id="addFieldBtn">Добавить еще поле</button>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+
+    <template id="inputTemplate">
+        <input type="text" placeholder="Дополнительная информация">
+    </template>
+
+    <h2>Галерея изображений с модальным окном</h2>
+    <div id="gallery"></div>
+
+    <template id="imageTemplate">
+        <img class="galleryImage" src="" alt="Gallery Image">
+    </template>
+
+    <div id="modal" style="display:none;">
+        <img id="modalImage" src="./img/winter.jpg" alt="Modal Image">
+    </div>
+    <h2>Система комментариев для блога</h2>
+    <div id="comments"></div>
+    <input type="text" id="commentInput" placeholder="Напишите комментарий...">
+    <button id="submitComment">Отправить</button>
+
+    <template id="commentTemplate">
+        <div class="comment">
+            <p class="commentText"></p>
+        </div>
+    </template>
+    <script src="script.js"></script>
+</body>
+
+</html>
