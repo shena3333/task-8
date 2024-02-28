@@ -47,7 +47,6 @@ products.map((value) => {
     productContainer.append(productCard)
 })
 
-
 // Форма регистрации с динамическим добавлением полей
 // Задача: Создать форму регистрации, где пользователь может добавлять новые поля ввода (например, дополнительные email или номера
 // телефонов) с помощью кнопки "Добавить еще". Каждое новое поле должно создаваться с использованием template элемента.
@@ -61,15 +60,12 @@ function addInput() {
     const inputNewInfo = inputTemplate.querySelector('input').cloneNode(true);
     inputNewInfo.classList = 'new-user-info';
     addFieldBtn.before(inputNewInfo);
-    console.log('добавление непонятно чего через темплейт');
 };
 regInput.addEventListener('click', registrate);
 function registrate() {
     event.preventDefault();
     let newUserInfo = regForm.querySelectorAll('.new-user-info');
-    newUserInfo.forEach((info) => {
-        newInfos.push(info.value);
-    })
+    newUserInfo.forEach(info => newInfos.push(info.value))
     alert(`Пользователь зарегиcтрирован. Указаны дополнительные сведения: ${newInfos}`)
 }
 
@@ -80,25 +76,20 @@ function registrate() {
 const images = ["./img/forest.jpg", './img/rainbow.jpg', './img/sky.jpg', './img/winter.jpg'];
 const gallery = document.querySelector('#gallery');
 const modal = document.querySelector('#modal');
+const imageTemplate = document.querySelector('#imageTemplate').content;
+const modalImage = document.querySelector('#modalImage');
 images.map((img) => {
-    const imageTemplate = document.querySelector('#imageTemplate').content;
     const galleryImage = imageTemplate.querySelector('.galleryImage').cloneNode(true);
     galleryImage.src = img;
     gallery.append(galleryImage);
 });
-const imagesForModal = document.querySelectorAll('.galleryImage');
-imagesForModal.forEach((value) => {
-    value.addEventListener('click', function () {
+document.querySelectorAll('.galleryImage').forEach(img => {
+    img.addEventListener('click', () => {
         modal.style = "display:flex;";
-        const modalImage = document.querySelector('#modalImage');
-        modalImage.src = value.src;
+        modalImage.src = img.src;
     });
 });
-modal.addEventListener('click', modalToDisplayNone);
-function modalToDisplayNone() {
-    modal.style = "display:none;";
-}
-
+modal.addEventListener('click', () => modal.style = "display:none;");
 
 // Система комментариев для блога
 // Задача: Реализовать систему добавления комментариев к посту в блоге. Комментарии должны вводиться в текстовое поле и добавляться под
@@ -108,9 +99,9 @@ function modalToDisplayNone() {
 const comments = document.getElementById('comments');
 const commentInput = document.getElementById('commentInput');
 const submitComment = document.getElementById('submitComment');
+const commentTemplate = document.getElementById('commentTemplate').content;
 submitComment.addEventListener('click', addComment);
 function addComment() {
-    const commentTemplate = document.getElementById('commentTemplate').content;
     const comment = commentTemplate.querySelector('.comment').cloneNode(true);
     const commentText = comment.querySelector('.commentText');
     commentText.textContent = `Комментарий: ${commentInput.value}`;
